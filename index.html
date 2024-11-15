@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargar Emoji</title>
+</head>
+
+<body>
+    <h1>Selecciona un Emoji</h1>
+    <p>Ingresa el código o el hexcode del emoji para cargar su imagen:</p>
+    <ul>
+        <li>sonrie, 1F600</li>
+        <li>sonriente, 1F603</li>
+        <li>sonriente chino, 1F604</li>
+        <li>muriendose de la risa, 1F601</li>
+    </ul>
+    <input type="text" id="emojiCode" placeholder="emoji (ej. sonriente, muy sonriente)">
+    <button id="loadEmoji">Cargar Emoji</button>
+
+    <h2>Imagen del Emoji:</h2>
+    <img id="emojiImage" src="" alt="Emoji" style="display:none; width:100px; height:auto;">
+
+    <script src="./script.js" defer></script>
+</body>
+
+</html>

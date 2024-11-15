@@ -1,0 +1,60 @@
+A partir del siguiente JSON con los metadatos de los emojis, debes permitir que el usuario cargue la imagen de uno de ellos por código, dale como opción 4.
+
+https://openmoji.org/data/openmoji.json (URL API para el JSON)
+
+https://openmoji.org/data/color/svg/%7Bemoji_code%7D.svg (URL API para cada emoji)
+
+Ejemplo:
+https://openmoji.org/data/color/svg/1F600.svg (Petición del emoji con código 1F600)
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargar Emoji</title>
+</head>
+<body>
+    <h1>Selecciona un Emoji</h1>
+    <p>Ingresa el código del emoji para cargar su imagen:</p>
+    <input type="text" id="emojiCode" placeholder="Código del emoji (ej. smile)">
+    <button id="loadEmoji">Cargar Emoji</button>
+
+    <h2>Imagen del Emoji:</h2>
+    <img id="emojiImage" src="" alt="Emoji" style="display:none; width:100px; height:auto;">
+
+    <script>
+        // Metadatos de los emojis en formato JSON
+        const emojis = [
+            {
+                "code": "smile",
+                "name": "Sonrisa",
+                "image": "https://example.com/smile.png"
+            },
+            {
+                "code": "sad",
+                "name": "Triste",
+                "image": "https://example.com/sad.png"
+            },
+            {
+                "code": "heart",
+                "name": "Corazón",
+                "image": "https://example.com/heart.png"
+            }
+        ];
+
+        document.getElementById('loadEmoji').addEventListener('click', function() {
+            const code = document.getElementById('emojiCode').value.trim();
+            const emoji = emojis.find(e => e.code === code);
+
+            if (emoji) {
+                const emojiImage = document.getElementById('emojiImage');
+                emojiImage.src = emoji.image;
+                emojiImage.style.display = 'block'; // Mostrar la imagen
+            } else {
+                alert('Código de emoji no encontrado. Intenta de nuevo.');
+            }
+        });
+    </script>
+</body>
+</html>
